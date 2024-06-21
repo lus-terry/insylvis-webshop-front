@@ -3,7 +3,6 @@ import ProductCardHomePage from "../components/ProductCardHomePage";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import text from "../components/Text";
-import ImageSlider from "../components/ImageSlider";
 
 const  Home = () => {
   

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../slices/authSlice';
 import { toast } from "react-toastify";
 import AvatarIconGreen from './AvatarIconGreen';
+import { clearCart} from "../slices/cartSlice";
 
 const SmallIcons = () => {
 
@@ -28,7 +29,8 @@ const SmallIcons = () => {
       {
         auth._id ?
         <AvatarIconGreen 
-          onClick={() => {
+          onClick={() => {  
+              dispatch(clearCart());
               dispatch(logoutUser());
               toast.warning("Logged out", {position: 'bottom-left'});
               console.log("clicked")
