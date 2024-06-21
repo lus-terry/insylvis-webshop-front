@@ -1,6 +1,14 @@
+import { useParams } from 'react-router-dom';
+
 const CheckoutSuccess = () => {
+    let { orderId } = useParams();
+
     return ( 
-        <h2>CheckoutSuccess</h2>
+        <div className="content_container_blank" > 
+            <h2>CheckoutSuccess</h2>
+            <p>Your order ID is: {orderId}</p>
+        </div>
+        
      );
 }
  
