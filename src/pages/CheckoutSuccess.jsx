@@ -5,7 +5,7 @@ const CheckoutSuccess = () => {
 
     return ( 
         <div className="content_container_blank" > 
-            <h2>CheckoutSuccess</h2>
+            <h2>Checkout Success</h2>
             <p>Your order ID is: {orderId}</p>
         </div>
         
