@@ -24,6 +24,7 @@ import Users from './pages/admin/Users';
 import ProductDetails from './pages/admin/list/details/ProductDetails';
 import OrderDetails from './pages/admin/list/details/OrderDetails';
 import UserDetails from './pages/admin/list/details/UserDetails';
+import Checkout from './pages/Checkout';
 
 
 function App() {
@@ -41,7 +42,8 @@ function App() {
             <Route path="/gallery" element={<Gallery />} /> 
             <Route path="/contact" element={<Contact />} /> 
             <Route path="/cart" element={<Cart />} /> 
-            <Route path="/checkout-success" element={<CheckoutSuccess />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout-success/:orderId"  element={<CheckoutSuccess />} />
             <Route path="/product/:id" element={<ProductDetails />} /> 
             <Route path="/order/:id" element={<OrderDetails />} /> 
             <Route path="/user/:id" element={<UserDetails />} /> 

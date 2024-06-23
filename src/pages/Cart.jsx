@@ -150,7 +150,8 @@ const Cart = () => {
                                     </div>
                                     <div className="flex flex-col w-1/3 pb-10">
                                         {auth._id ? 
-                                            <PayButton   cartItems = {cart.cartItems}/> 
+                                           // <PayButton   cartItems = {cart.cartItems}/> 
+                                           <Button style={{  width: '100%' }} onClick={() => navigate("/checkout")}> Checkout </Button>
                                             :
                                             <>
                                             <Button  id="button_blocked" style={{  width: '100%' }} > Checkout</Button>

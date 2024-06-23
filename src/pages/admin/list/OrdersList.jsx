@@ -18,7 +18,7 @@ export default function OrdersList() {
   const rows = list && list.map((order) => {
     return {
         id: order._id,
-        cName: order.shipping.name, 
+        cName: order.shipping.firstName, 
         amount: (order.total/100)?.toLocaleString(),
         dStatus: order.delivery_status,
         date:moment(order.createdAt).fromNow(),

@@ -403,6 +403,42 @@ p {
   font-style: italic;
 }
 
+
+.form_container_cart {
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.form_container_cart > h2 {
+  margin-block: 1rem;
+  padding-block: 0.6rem;
+  color: black;
+}
+
+.form_container_cart > form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+
+
+.form_container_cart input {
+  border: none;
+  padding: 0.5rem;
+  border-bottom: 1px solid gray;
+  font-size: 1.1rem;
+  outline: none;
+  
+}
+
+.form_container_cart input::placeholder {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
 .product_name {
   cursor: pointer;
   color: initial;

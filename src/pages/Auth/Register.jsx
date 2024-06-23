@@ -14,7 +14,7 @@ const Register = () => {
 
     useEffect(() => {
         if(auth._id) {
-            navigate("/cart")
+            navigate("/")
         }
     }, [auth._id, navigate]);
 

@@ -8,6 +8,20 @@ const initialState = {
     error: null,
 };
 
+export const orderCreate = createAsyncThunk(
+    "orders/orderCreate",
+    async (values, { rejectWithValue }) => {
+      try {
+        const response = await axios.post(`${url}/orders`, values, setHeaders());
+        console.log("response data", response.data)
+        return response.data; // Ensure this data contains generatedId
+      } catch (error) {
+        console.log(error);
+        return rejectWithValue(error.response.data);
+      }
+    }
+  );
+
 export const ordersFetch = createAsyncThunk(
     "orders/ordersFetch",
         async() => {
@@ -51,6 +65,21 @@ const ordersSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
+            .addCase(orderCreate.pending, (state, action) => {
+                state.createStatus = "pending";
+                state.error = null;
+            })
+            .addCase(orderCreate.fulfilled, (state, action) => {
+                state.createStatus = "success";
+                state.list.push(action.payload);
+                state.error = null;
+         
+            })
+            .addCase(orderCreate.rejected, (state, action) => {
+                state.createStatus = "rejected";
+                state.error = action.payload;
+   
+            })
             .addCase(ordersFetch.pending, (state, action) => {
                 state.status = "pending";
                 state.error = null;

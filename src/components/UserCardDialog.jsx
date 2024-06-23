@@ -27,8 +27,9 @@ export default function UserCardDialog({userId}) {
     let selectedUser = usersList.filter((user) => user._id === userId)
     setUser(selectedUser[0] || {});
     console.log("user", user)
-
+    console.log("orders", orders)
     let selectedOrders = ordersList.filter((order) => order.userId === userId)
+    console.log("selected", selectedOrders)
     setOrders(selectedOrders);
     
     setOpen(true);

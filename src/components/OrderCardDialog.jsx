@@ -18,16 +18,27 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 export default function OrderCardDialog({orderId}) {
-const [order, setOrder] = useState({})
+  const [order, setOrder] = useState({})
   const [open, setOpen] = React.useState(false);
   const {list} = useSelector(state => state.orders)
 
   const handleClickOpen = () => {
-    let selectedOrder = list.filter((order) => order._id === orderId)
-    setOrder(selectedOrder[0] || {});
-    console.log("order", order)
+    let selectedOrder = list.find(order => order._id === orderId);
+    if (selectedOrder) {
+      setOrder(selectedOrder);
+    } else {
+      setOrder({});
+    }
     setOpen(true);
   };
+
+  React.useEffect(() => {
+    if (open) {
+      console.log("order", order);
+    }
+  }, [open, order]);
+
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -94,16 +105,15 @@ const [order, setOrder] = useState({})
                         <div className='flex flex-col gap-2'>
                             <p>SHIPPING DETAILS:</p> 
                             <div className='flex flex-col'>
-                                <div>{"NAME: " + order?.shipping?.name}</div>
+                                <div>{"NAME: " + order?.shipping?.firstName + " " + order?.shipping?.lastName}</div>
                                 <div>{"EMAIL: " + order?.shipping?.email}</div>
                                 <div>{"PHONE: " + order?.shipping?.phone}</div>
                                 <div className='flex flex-col'>
                                     <div>ADDRESS:</div>
-                                    <div>{order.shipping?.name}</div>
-                                    <div>{order.shipping?.address?.line1}</div>
-                                    <div>{order.shipping?.address?.line2}</div>
-                                    <div>{order.shipping?.address?.city}, {order.shipping?.address?.postal_code}</div>
-                                    <div>{order.shipping?.address?.country}</div>
+                                    <div>{order?.shipping?.firstName + " " + order?.shipping?.lastName}</div>
+                                    <div>{order?.shipping?.address + " " + order?.shipping?.apartment}</div>
+                                    <div>{order?.shipping?.city + ", " + order?.shipping?.postal_code}</div>
+                                    <div>{order?.shipping?.address?.country}</div>
                                 </div>
                                 
                         </div>
